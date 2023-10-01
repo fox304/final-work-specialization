@@ -58,3 +58,62 @@
 
 ![](pics/2.png)
 
+--- 
+
+<details>
+    <summary>3 и 4</summary>
+
+    sudo apt install mysql-client
+    
+</details>
+
+![](pics/3.png)
+
+создаем файл __mysql.list__ 
+
+<details>
+    <summary></summary>
+
+    cd /etc/apt/sources.list.d/
+    sudo touch mysql.list
+    sudo nano mysql.list
+
+</details>
+
+![](pics/4.png)
+
+<details>
+    <summary>устанавливаем ключ и обновляем</summary>
+
+    sudo apt-key adv __keyserver pgp.mit.edu --recv-keys 3A79BD29
+    sudo apt update
+
+</details>
+
+![](pics/5.png)
+
+
+<details>
+    <summary>скачиваем  пакет deb через dpkg</summary>
+
+    wget http://cz.archive.ubuntu.com/ubuntu/pool/main/e/ed/ed_1.18-1_amd64.deb
+    
+
+</details>
+
+![](pics/6.png)
+
+<details>
+    <summary>устанавливаем пакет,зависимости и удаляем</summary>
+
+    sudo dpkg -i ed_1.18-1_amd64.deb
+    sudo apt -f install
+    sudo dpkg -r ed_1.18-1_amd64
+
+
+</details>
+
+![](pics/7.png)
+
+___
+
