@@ -117,3 +117,11 @@
 
 ___
 
+<details>
+    <summary>5</summary>
+
+    история
+
+</details>
+
+![](pics/8.png)
