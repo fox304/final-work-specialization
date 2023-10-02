@@ -136,3 +136,77 @@ ___
 
 ![](pics/9.png)
 
+<details>
+    <summary>7 и 8</summary>
+
+    sudo mysql -u root
+    mysql> CREATE DATABASE human_friends;
+
+
+    CREATE TABLE animals (
+    id INT PRIMARY KEY AUTO_INCREMENT);
+
+
+    CREATE TABLE pets (
+    id INT PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES animals(id));
+
+
+    CREATE TABLE pack_animals (
+    id INT PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES animals(id));
+
+
+    CREATE TABLE dogs (
+    id INT PRIMARY KEY,
+    name VARCHAR(15),
+    dog_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pets(id));
+
+
+    CREATE TABLE cats (
+    id INT PRIMARY KEY,
+    name VARCHAR(15),
+    cat_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pets(id));
+
+
+    CREATE TABLE hamsters (
+    id INT PRIMARY KEY,
+    имя VARCHAR(15),
+    hamster_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pets(id));
+
+
+    CREATE TABLE horses (
+    id INT PRIMARY KEY,
+    name VARCHAR(15),
+    horse_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pack_animals(id));
+
+
+    CREATE TABLE camels (
+    id INT PRIMARY KEY,
+    name VARCHAR(15),
+    camel_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pack_animals(id));
+    
+    
+    CREATE TABLE donckeys (
+    id INT PRIMARY KEY,
+    name VARCHAR(15),
+    donckey_command VARCHAR(10),
+    birthday DATE,
+    FOREIGN KEY (id) REFERENCES pack_animals(id));
+
+
+</details>
+
+
+![](pics/10.png)
+
