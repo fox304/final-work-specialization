@@ -125,3 +125,14 @@ ___
 </details>
 
 ![](pics/8.png)
+
+<details>
+    <summary>6</summary>
+
+    диаграмма
+
+</details>
+
+
+![](pics/9.png)
+
