@@ -141,7 +141,7 @@ ___
 
     sudo mysql -u root
     mysql> CREATE DATABASE human_friends;
-    USE DATABASE human_friends;
+    USE human_friends;
 
 
     CREATE TABLE animals (
@@ -152,7 +152,7 @@ ___
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(15),
     animals_id INT,
-    FOREIGN KEY (animals_id) REFERENCES animals(id));
+    FOREIGN KEY (animals_id) REFERENCES animals(id) ON DELETE CASCADE);
 
     CREATE TABLE individuals (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -160,7 +160,7 @@ ___
     command VARCHAR(10),
     birthday DATE,
     piece_animals_id INT,
-    FOREIGN KEY (piece_animals_id) REFERENCES piece_animals(id));
+    FOREIGN KEY (piece_animals_id) REFERENCES piece_animals(id) ON DELETE CASCADE);
 
     INSERT INTO animals (type_animals)
     VALUES ('pets'),
@@ -194,7 +194,19 @@ ___
 
 ![](pics/10.png)
 
+<details>
+    <summary>11</summary>
 
+    DELETE FROM piece_animals 
+    WHERE  name LIKE 'camels';
+
+    CREATE TABLE ungulates 
+    SELECT * FROM piece_animals 
+    WHERE name LIKE 'horses' OR name LIKE 'donkeys';
+
+</details>
+
+![](pics/11.png)
 
 
 
