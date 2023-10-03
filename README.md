@@ -136,3 +136,77 @@ ___
 
 ![](pics/9.png)
 
+<details>
+    <summary>7, 8 и 9</summary>
+
+    sudo mysql -u root
+    mysql> CREATE DATABASE human_friends;
+    USE human_friends;
+
+
+    CREATE TABLE animals (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    type_animals VARCHAR(20));
+
+    CREATE TABLE piece_animals (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(15),
+    animals_id INT,
+    FOREIGN KEY (animals_id) REFERENCES animals(id) ON DELETE CASCADE);
+
+    CREATE TABLE individuals (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(15),
+    command VARCHAR(10),
+    birthday DATE,
+    piece_animals_id INT,
+    FOREIGN KEY (piece_animals_id) REFERENCES piece_animals(id) ON DELETE CASCADE);
+
+    INSERT INTO animals (type_animals)
+    VALUES ('pets'),
+    ('pack_animals');
+
+    INSERT INTO piece_animals (name, animals_id)
+    VALUES ('dogs', 1),
+    ('cats', 1),
+    ('hamsters', 1),
+    ('horses', 2),
+    ('camels', 2),
+    ('donkeys', 2);
+
+    INSERT INTO individuals ( name, command, birthday, piece_animals_id)
+    VALUES ('FRED', 'Sit ', '2018-07-04', 4),
+    ('TUT', 'Play dead', '2017-04-03', 2),
+    ('TODDY', 'Jump or Up', '2020-02-23', 3),
+    ('LUCKY', 'Right ', '2020-05-18', 2),
+    ('KITTY', 'Back-up', '2016-11-01', 5),
+    ('PAUL', 'Go to Bed', '2022-03-03', 1),
+    ('ROCKY', 'Stand ', '2020-10-24', 6),
+    ('QUEEN', 'Left ', '2021-12-18', 2),
+    ('SNOWY', 'Down ', '2018-01-01', 3),
+    ('CUDDLES', 'Place ', '2019-06-28', 1),
+    ('PERKY', 'Eat', '2022-04-03', 5),
+    ('CAVALIER', 'Search', '2022-04-18', 3);
+
+
+</details>
+
+
+![](pics/10.png)
+
+<details>
+    <summary>11</summary>
+
+    DELETE FROM piece_animals 
+    WHERE  name LIKE 'camels';
+
+    CREATE TABLE ungulates 
+    SELECT * FROM piece_animals 
+    WHERE name LIKE 'horses' OR name LIKE 'donkeys';
+
+</details>
+
+![](pics/11.png)
+
+
+
