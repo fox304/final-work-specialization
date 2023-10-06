@@ -195,7 +195,7 @@ ___
 ![](pics/10.png)
 
 <details>
-    <summary>11</summary>
+    <summary>10</summary>
 
     DELETE FROM piece_animals 
     WHERE  name LIKE 'camels';
@@ -208,5 +208,41 @@ ___
 
 ![](pics/11.png)
 
+<details>
+    <summary>11</summary>
+
+    CREATE TABLE young_animals 
+    SELECT  *,
+    TIMESTAMPDIFF(year,birthday,CURDATE()) AS count_years,
+    TIMESTAMPDIFF(month,birthday,CURDATE())%12 AS count_months,
+    TIMESTAMPDIFF(month,birthday,CURDATE()) AS total_month
+    FROM individuals
+    WHERE birthday
+    BETWEEN "2020-10-04" AND "2023-10-04";
+
+</details>
+
+![](pics/12.png)
+
+
+
+<details>
+    <summary>12</summary>
+
+    SELECT * from individuals
+    LEFT JOIN ungulates
+    ON individuals.id=ungulates.id
+    LEFT JOIN animals
+    on individuals.id=animals.id
+    LEFT JOIN young_animals
+    on individuals.id=young_animals.id
+    LEFT JOIN piece_animals
+    on individuals.id=piece_animals.id
+    ;
+
+</details>
+
+
+![](pics/13.png)
 
 
