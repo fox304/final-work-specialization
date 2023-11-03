@@ -1,3 +1,5 @@
+package control;
+
 public class Start {
     Menu menu = new Menu();
     AnimalManager animalManager = new AnimalManager();

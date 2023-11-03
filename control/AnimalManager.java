@@ -1,3 +1,5 @@
+package control;
+
 import allAnimals.*;
 
 import java.util.ArrayList;
