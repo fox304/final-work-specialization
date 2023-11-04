@@ -1,5 +1,7 @@
 package allAnimals;
 
-public abstract class PackAnimals extends  Animals  {
-
+public  class PackAnimals extends  Animals  {
+    public PackAnimals() {
+        arrayCommands.add("Пшел");
+    }
 }

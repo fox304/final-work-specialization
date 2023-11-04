@@ -6,22 +6,12 @@ public class Start {
     boolean flag = true;
     public void startProgramm(){
 
-        animalManager.originAnimals();
+        animalManager.originAnimals();// инициализация первоначального списка животных
         while (flag){
             int numberMenu = menu.printMenu();
             animalManager.choiceCommand(numberMenu);
         }
 
-
-
-
-
-
-
-
-
     }
-
-
 
 }

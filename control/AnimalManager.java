@@ -22,7 +22,6 @@ public class AnimalManager {
         Animals camel1 = new Camel("SNOWY","2018-01-01");
         Animals donkey1 = new Donkey("PERKY","2022-04-03");
 
-
         listA = new Animals [] {dog1,cat1,hamster1,horse1,camel1,donkey1};
         arr = new ArrayList<>(Arrays.asList(listA));
         animalList.getAnimals().addAll(arr);
@@ -30,41 +29,50 @@ public class AnimalManager {
     }
 
     public  void addAnimal(){
-
-      int num = menu.printAnimals();
-      choiceAnimal(num);
+        System.out.println("Какого животного хотите завести?");
+        int num = menu.printSpeciesAnimals();
+        choiceAnimal(num);
+        ArrayList<Animals> arr = animalList.getAnimals();
+        System.out.printf("Вы завели: %s\n ",arr.get(arr.size()-1));
     }
 
     public void addCommand(){
-        int num = menu.printAllAnimals(animalList);
-        int num2 = menu.printAllCommands();
-        Animals an = animalList.getAnimals().get(num - 1);
-        String str = learningCommands(num2);
-        an.training(str);
+        System.out.println("Какое животное хотите обучить командам?");
+        int num = menu.printAllAnimals(animalList); // номер конкретного животного
+        int num2 = menu.printAllCommands(); // номер конкретной команды
+        Animals an = animalList.getAnimals().get(num - 1); // конкретное животное
+        an.training(menu.commands[num2-1]); // обучение выбранного животного в классе Animals
+        System.out.printf(" Животное %s обучилось команде %s\n",an.getName(), menu.commands[num2-1]);
 
     }
 
     public void showAnimalCommands(){
+        System.out.println("У какого животного показать список команд?");
         int num = menu.printAllAnimals(animalList);
         Animals an = animalList.getAnimals().get(num - 1);
-        System.out.println(an.getArrayCommands());
+        System.out.println("Животное обучено командам:");
+        for (String str:an.getArrayCommands()) {
+            System.out.printf(" %s ,",str);
+        }
+        System.out.println();
+
+    }
+
+    public void whichClass(){
+        System.out.println("Класс какого животного показать?");
+        int num = menu.printAllAnimals(animalList); // распечатка всех животных
+        Animals an = animalList.getAnimals().get(num - 1);
+        System.out.printf("Животное %s принадлежит классу %s\n",
+                an.getName(),an.getClass().getSimpleName());
     }
 
     public void choiceCommand(int num) {
 
         switch (num) {
-            case 1:
-                addAnimal();
-                break;
-            case 2:
-//                animalManager.choiceOfPrice();
-                break;
-            case 3:
-                showAnimalCommands();
-                break;
-            case 4:
-                addCommand();
-                break;
+            case 1 -> addAnimal();
+            case 2 -> whichClass();
+            case 3 -> showAnimalCommands();
+            case 4 -> addCommand();
         }
     }
 
@@ -78,49 +86,4 @@ public class AnimalManager {
             case 6 -> animalList.addedAnimal(new Donkey("CAVALIER", "2022-04-18"));
         }
     }
-
-    public String learningCommands(int num){
-
-        switch (num) {
-            case 1 -> {
-                return "Sit";
-            }
-            case 2 -> {
-                return "Play dead";
-            }
-
-            case 3 -> {
-                return "Jump";
-            }
-            case 4 -> {
-                return "Up";
-            }
-            case 5 -> {
-                return "Back up";
-            }
-            case 6 -> {
-                return "Go to bed";
-            }
-            case 7 -> {
-                return "Stand";
-            }
-            case 8 -> {
-                return "Left";
-            }
-            case 9 -> {
-                return "Place";
-            }
-            case 10 -> {
-                return "Right";
-            }
-            case 11 -> {
-                return "Eat";
-            }
-            case 12 -> {
-                return "Search";
-            }
-        }
-        return "trgtrg";
-    }
-
 }

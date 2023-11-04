@@ -2,11 +2,22 @@ package allAnimals;
 
 import java.util.ArrayList;
 
-public abstract class Animals  {
+public  class Animals  {
 
-    protected ArrayList<String> arrayCommands = new ArrayList<>();
+
     protected String name;
     protected String bithday;
+
+    protected ArrayList<String> arrayCommands = new ArrayList<>();
+
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBithday() {
+        return bithday;
+    }
 
     public ArrayList<String> getArrayCommands() {
         return arrayCommands;
@@ -16,4 +27,8 @@ public abstract class Animals  {
         arrayCommands.add(command);
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

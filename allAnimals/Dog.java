@@ -8,6 +8,7 @@ public class Dog extends Pets {
         this.name = n;
         this.bithday = b;
 
+
     }
     @Override
     public String toString() {
