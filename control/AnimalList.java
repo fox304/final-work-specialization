@@ -1,7 +1,6 @@
 package control;
 
 import allAnimals.Animals;
-
 import java.util.ArrayList;
 
 public class AnimalList {
@@ -15,6 +14,7 @@ public class AnimalList {
     public void addedAnimal(Animals ani){
         animals.add(ani);
     }
+
 
 
 }

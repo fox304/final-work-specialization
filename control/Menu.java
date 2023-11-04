@@ -5,61 +5,94 @@ import allAnimals.Animals;
 import java.util.Scanner;
 
 public class Menu {
-    Scanner scanner = new Scanner(System.in);
 
+    String [] commands = new String[] {"Sit","Play dead","Jump","Up","Back up","Go to bed",
+                                        "Stand","Left","Place","Right","Eat","Search"};
+    String [] mainMunu = new String[] {"Завести животное","Показать класс животного",
+                                        "Список команд, которое выполняет животное",
+                                        "Обучить животное новым командам","Закончить работу с программой"};
+    String [] speciesAnimals = new String[] {"Dog","Cat","Hamster","Horse","Camel","Donkey"};
+
+    /**
+     * печать меню
+     * @return номер меню
+     */
     public  int printMenu(){
-        System.out.println("----------------------------");
-        System.out.println("1) Завести животное");
-        System.out.println("2) Правильный класс");
-        System.out.println("3) Список команд, которое выполняет животное");
-        System.out.println("4) Обучить животное новым командам");
-
-        return scanner.nextInt();
-
+        System.out.println("--------------Введите номер из меню--------------");
+        for (int i = 0; i < mainMunu.length; i++){
+            System.out.printf("%s) %s\n", i + 1, mainMunu[i]);
+        }
+        return errorHandling(mainMunu.length);
     }
 
-    public int printAnimals(){
-        System.out.println("------------------------");
-        System.out.println("1) Dog");
-        System.out.println("2) Cat");
-        System.out.println("3) Hamster");
-        System.out.println("4) Horse");
-        System.out.println("5) Camel");
-        System.out.println("6) Donkey");
+    /**
+     * вывод видов животных
+     * @return номер вида животного
+     */
+    public int printSpeciesAnimals(){
 
-        return scanner.nextInt();
+        System.out.println("---------Введите номер вида животного-----------------");
+        for (int i = 0; i < speciesAnimals.length;i++){
+            System.out.printf("%s) %s \n",i + 1, speciesAnimals[i]);
+        }
+
+        return errorHandling(speciesAnimals.length);
     }
 
+    /**
+     * вывод команд животного
+     * @return  номер команды животного
+     */
     public int printAllCommands(){
-        System.out.println("--------------------------");
-        System.out.println("1) Sit");
-        System.out.println("2) Play dead");
-        System.out.println("3) Jump");
-        System.out.println("4) Up");
-        System.out.println("5) Back up");
-        System.out.println("6) Go to bed");
-        System.out.println("7) Stand");
-        System.out.println("8) Left");
-        System.out.println("9) Place");
-        System.out.println("10) Right");
-        System.out.println("11) Eat");
-        System.out.println("12) Search");
 
-        return scanner.nextInt();
+        System.out.println("-----------Введите номер команды---------------");
+        for (int i = 0; i < commands.length;i++){
+            System.out.printf("%s) %s \n",i + 1, commands[i]);
+        }
+
+        return errorHandling(commands.length);
     }
 
+    /**
+     * вывод всех животных
+     * @return размер списка всех животных
+     */
     public int printAllAnimals(AnimalList animalList){
-        System.out.println("-------------------------");
+
         int i = 0;
-        System.out.println("Выберите животное, которое хотели бы обучить командам:");
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println("-------- Выберите животное ---------");
         for (Animals an : animalList.getAnimals()) {
-            System.out.printf(" %s) %s \n",++i,an);
+            System.out.printf(" %s) кличка - %s,\t днюха -  %s\n",
+                    ++i,an.getName(),an.getBithday());
 
         }
-        return scanner.nextInt();
+        return errorHandling(animalList.getAnimals().size());
 
     }
 
+    /**
+     * обработка ошибок на целое число и диапазон
+     * @return обработанный номер
+     */
+    public int errorHandling(int size){
+
+        int num = 0;
+        while (true){
+            try {
+                num = new Scanner(System.in).nextInt();
+                break;
+            } catch (RuntimeException e){
+                System.out.println("неверный ввод");
+            }
+        }
+
+        while (true){
+            if (num > 0 || num <= size){
+                return num;
+            }
+            System.out.printf("цифра должна быть больше ноля и меньше или равно %s\n",size);
+        }
+
+    }
 
 }
