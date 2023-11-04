@@ -1,7 +1,6 @@
 package control;
 
 import allAnimals.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,7 +27,10 @@ public class AnimalManager {
 
     }
 
-    public  void addAnimal(){
+    public  void addAnimal() throws Exception{
+        try (CounterClass count = new CounterClass()){
+            count.add();
+        }
         System.out.println("Какого животного хотите завести?");
         int num = menu.printSpeciesAnimals();
         choiceAnimal(num);
@@ -66,13 +68,14 @@ public class AnimalManager {
                 an.getName(),an.getClass().getSimpleName());
     }
 
-    public void choiceCommand(int num) {
+    public void choiceCommand(int num) throws Exception {
 
         switch (num) {
             case 1 -> addAnimal();
             case 2 -> whichClass();
             case 3 -> showAnimalCommands();
             case 4 -> addCommand();
+            case 5 -> Start.flag = false;
         }
     }
 

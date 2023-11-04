@@ -10,7 +10,7 @@ public class Menu {
                                         "Stand","Left","Place","Right","Eat","Search"};
     String [] mainMunu = new String[] {"Завести животное","Показать класс животного",
                                         "Список команд, которое выполняет животное",
-                                        "Обучить животное новым командам"};
+                                        "Обучить животное новым командам","Закончить работу с программой"};
     String [] speciesAnimals = new String[] {"Dog","Cat","Hamster","Horse","Camel","Donkey"};
 
     /**

@@ -1,7 +1,7 @@
 package allAnimals;
 
 public  class PackAnimals extends  Animals  {
-    public PackAnimals() {
+    protected PackAnimals() {
         arrayCommands.add("Пшел");
     }
 }

@@ -14,6 +14,4 @@ public class Horse extends PackAnimals {
 
                 '}';
     }
-
-
 }

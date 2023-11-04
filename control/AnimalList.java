@@ -1,7 +1,6 @@
 package control;
 
 import allAnimals.Animals;
-
 import java.util.ArrayList;
 
 public class AnimalList {
